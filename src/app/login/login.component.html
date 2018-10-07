@@ -1,0 +1,14 @@
+<div class="col-12" style="text-align:center">
+  <h1>Login Page</h1>
+<div>
+  <input type="text" class="userid" id="username" placeholder="Login ID" onfocus="this.placeholder=''" onblur="this.placeholder='Login ID'" [(ngModel)]="username" name="username">
+				<div *ngIf="errorMsgUser != ''" id="errfn" style="color:red;font-size: 0.8em;">{{errorMsgUser}}  </div>
+      </div>
+<div>
+  <input #val type="password" id="pass" placeholder="Password" onfocus="this.placeholder=''" class="keyboardInput bottomBorder" [(ngModel)]="pswd" name="userpswd" style="margin-top:8px">
+  <div *ngIf="errorMsgUser == '' && errorMsgPswd != ''" id="err" style="color:red;font-size: 0.8em;">{{errorMsgPswd}} </div>
+
+</div>
+  <span class="login-button"><button class="" role="button" (click)="myClickFunction(username , pswd )">LOGIN</button></span>
+  <span class="login-button"><button class="" role="button" routerLink="/app-signup">SignUp</button></span>
+</div>
