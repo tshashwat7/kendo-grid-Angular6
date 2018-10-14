@@ -1,0 +1,22 @@
+<app-header></app-header>
+<h1>View Tournament</h1>
+        <span>
+            <label>
+                Tournament Name
+            </label>
+            <input [value]="results.tournamentName" disabled>
+</span>
+<span>
+  <label>
+    Start Date
+  </label>
+  <input [value]="results.startDate" disabled>
+</span>
+<span>
+    <label>
+      End Date
+    </label>
+    <input [value]="results.endDate" disabled>
+  </span>
+<br>
+    <button (click)="goBack()">Back</button>

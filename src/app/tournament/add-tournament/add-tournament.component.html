@@ -1,0 +1,30 @@
+<h1>Add Tournament</h1>
+<div>
+<form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+    <span class="form-group">
+        <label for="tournamentName">Tournament Name</label>
+        <input type="text" class="form-control" name="tournamentName" [(ngModel)]="model.tournamentName" #tournamentName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && tournamentName.invalid }" required />
+        <div *ngIf="f.submitted && tournamentName.invalid" class="invalid-feedback">
+            <div *ngIf="tournamentName.errors.required">Name is required</div>
+        </div>
+    </span>
+    <span class="form-group">
+        <label for="startDate">Start Date</label>
+        <input type="date" class="form-control" name="startDate" [(ngModel)]="model.startDate" #startDate="ngModel" [ngClass]="{ 'is-invalid': f.submitted && startDate.invalid }" required />
+        <div *ngIf="f.submitted && startDate.invalid" class="invalid-feedback">
+            <div *ngIf="startDate.errors.required">Start Date required</div>
+            <div *ngIf="dateError">Start Date should be less then End Date</div>
+        </div>
+    </span>
+    <span class="form-group">
+        <label for="endDate">End Date</label>
+        <input type="date" class="form-control" name="endDate" [(ngModel)]="model.endDate" #endDate="ngModel" [ngClass]="{ 'is-invalid': f.submitted && endDate.invalid }" required email />
+        <div *ngIf="f.submitted && endDate.invalid" class="invalid-feedback">
+            <div *ngIf="endDate.errors.required">End Date required</div>
+        </div>
+    </span>
+    <div class="form-group">
+        <button type="submit"  class="btn btn-primary" (click)="validates()">Add</button>
+    </div>
+</form>
+</div>

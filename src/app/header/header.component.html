@@ -1,3 +1,21 @@
-<p>
-  header works!
-</p>
+<div style="background-color : grey">
+  <span>Logo</span> 
+  <ul class="ulClass">
+    <li class="listVal" *ngFor = "let menu of menuuItems">
+     <span routerLink="/{{menu.path}}">
+      <a >{{menu.text}}</a>
+    </span>
+    </li>
+  </ul>
+  <span>
+   
+    
+    <ul class="ulClass">
+      <button> {{user}}</button>
+        <li class="listVal"><a>Profile</a></li>
+
+      <li class="listVal" (click)="logout()"><a>Logout</a></li>
+    </ul>
+  </span>
+
+</div>

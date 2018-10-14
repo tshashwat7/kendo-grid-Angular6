@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Key } from 'protractor';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,6 @@ export class LoginComponent implements OnInit {
         }else{
           this.errorMsgUser = '';
         }
-        alert(pswd);
         if(pswd != "manik"){
           this.errorMsgPswd = 'Invalid Password';
         }
@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
     if(this.errorMsgUser == '' && this.errorMsgPswd == '')
         {  
            this.router.navigateByUrl('/app-tournament');
+           localStorage.setItem('user', user);
         }else{
 
         }

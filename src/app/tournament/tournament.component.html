@@ -1,3 +1,23 @@
-<p>
-  tournament works!
-</p>
+<app-header></app-header>
+<h1>Tournament Setup</h1>   
+<div style="float: right;" routerLink ="/app-add-tournament" >Add Tournament</div>
+<br>
+<div class="kendoGrid">
+    <kendo-grid [data]="gridData" [height]="410"  
+    [filter]="state.filter"  [filterable]="true" (dataStateChange)="dataStateChange($event)">
+        <kendo-grid-column (click)="tournamentName()" field="tournamentName" title="Tournament Name" width="250">
+                <ng-template kendoGridCellTemplate let-dataItem>
+                    <a (click)="tournamentName(dataItem)">{{dataItem.tournamentName}}</a>
+                </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column field="startDate" title="Start Date" width="250">
+        </kendo-grid-column>
+        <kendo-grid-column field="endDate" title="End Date" width="250">
+        </kendo-grid-column>
+        <kendo-grid-column field="" title="" width="120">
+            <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+                <button (click)="deleteTour(rowIndex)">Delete</button> 
+            </ng-template>
+        </kendo-grid-column>
+    </kendo-grid>
+</div>
